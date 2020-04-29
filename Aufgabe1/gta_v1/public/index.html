@@ -22,6 +22,7 @@
 
 		<main>
 
+
 			<section class="tagging">
 				<h2>Tagging</h2>
 
@@ -36,10 +37,10 @@
 						<input type="text" id="longitude" name="longitude" required>
 
 						<br><label for="name">name</label><br>
-						<input type="text" id="name" name="name" placeholder="some name" required>
+						<input type="text" id="name" name="name" placeholder="some name" required maxlength="10">
 
 						<br><label for="hashtag">hashtag</label><br>
-						<input type="text" id="hashtag" name="hashtag" placeholder="# + max 10 letters" >
+						<input type="text" id="hashtag" name="hashtag" placeholder="# + max 10 letters" pattern="#[0-9]" maxlength="11" >
 
 						<br><input type="submit" id="submitButton" name="submitButton" >
 					</fieldset>
@@ -52,9 +53,15 @@
 				<h2>Discovery</h2>
 
 				<!-- ############### Aufgabe1a Form2 Start -->
-				<form id="filter-form" action="/discovery" method="post"></form>
+				<form id="filter-form" action="/discovery" method="post">
+					<fieldset>
+						<legend>Filter by Searchterm</legend>
+						<input type="text" id="searchTerm" name="searchTerm" placeholder="search term">
+						<input type="submit">
+					</fieldset>
+				</form>
 				<!-- ############### Aufgabe1a Form2 Ende -->
-
+				<div class="flexgrid" >
 				<div class="taglist">
 					<ul id="results">
 						<li>Castle (49.01379, 8.404435) #sight</li>
@@ -65,6 +72,7 @@
 				<div class="tagmap">
 					<img id="result-img" src="./images/mapview.jpg" alt="a map with locations"/>
 					<div class="caption">Result map</div>
+				</div>
 				</div>
 
 			</section>

@@ -6,3 +6,48 @@ body {
 a {
   color: #00B7FF;
 }
+
+header{
+  background-color: #dddddd;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+
+}
+
+footer{
+  background-color: #dddddd;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+
+}
+
+main{
+  display: flex;
+}
+
+.tagging{
+  padding-left: 20px;
+  padding-right: 50px;
+}
+
+.flexgrid{
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+#results{
+  padding-right: 40px;
+}
+
+#filter-form{
+  width: 1100px;
+}
+
+#result-img{
+  width: 600px;
+}
