@@ -55,7 +55,7 @@ footer > span{
 
 
 #tag-form > fieldset{
-  display: flex;
+  display: grid;
   width: 100%;
 }
 #tag-form-fieldset > label{
