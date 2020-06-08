@@ -1,0 +1,111 @@
+
+	<!-- TODO: HTML AUS AUFGABE2 HIERHER KOPIEREN UND DIE BEISPIEL-EINTRÄGE DER DISCOVERY-LISTE MIT DEN FOLGENDEN ZEILEN ERSETZEN -->
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>GeoTagApp</title>
+		<link rel='stylesheet' href='./stylesheets/style-bs.css' />
+		<!--- <link rel="stylesheet" href="./stylesheets/bootstrap.min.css"> --->
+	</head>
+
+	<body>
+	<header class="jumbotron">
+		<div class="container-header">
+			<img src="./images/location.png" width="100" alt="an image of a map and location">
+			<h1>GeoTagApp</h1>
+			<nav>
+				<a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="container">
+		<section class="tagging col-3">
+			<h2>Tagging</h2>
+
+			<!-- ############### Aufgabe1a Form1 Start -->
+			<form id="tag-form" action="/tagging" method="post">
+				<fieldset>
+					<legend>Enter new GeoTag</legend>
+					<div>
+						<label for="latitude">latitude</label>
+						<input type="number" id="latitude" required value="49.01379">
+					</div>
+
+					<div>
+						<label for="longitude">longitude</label>
+						<input type="number" id="longitude" required value="8.390071">
+					</div>
+
+					<div>
+						<label for="name">name</label>
+						<input type="text" id="name" placeholder="name" required maxlength="10">
+					</div>
+
+					<div>
+						<label for="hashtag">hashtag</label>
+						<input type="text" id="hashtag" pattern="#[a-zA-Z]{1,10}" placeholder="# + max. 10 letters">
+					</div>
+
+					<div>
+						<button type="submit" value="submit">submit</button>
+					</div>
+				</fieldset>
+			</form>
+			<!-- ############### Aufgabe1a Form1 End -->
+		</section>
+
+		<section class="discovery col-9">
+			<h2>Discovery</h2>
+
+			<!-- ############### Aufgabe1a Form2 Start -->
+			<form id="filter-form" action="/discovery" method="post">
+				<fieldset id="discovery">
+					<legend>Filter by Searchterm</legend>
+					<div>
+						<input type="text" name="searchterm" placeholder="search term">
+
+						<button type="submit" value="apply">apply</button>
+					</div>
+					<input type="hidden" name="latitude" id="hiddenLatitude">
+					<input type="hidden" name="longitude" id="hiddenLongitude">
+				</fieldset>
+
+			</form>
+			<!-- ############### Aufgabe1a Form2 Ende -->
+
+			<div class="taglist col-4">
+				<ul id="results">
+					<% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
+						<li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+					<% }); %>
+				</ul>
+			</div>
+
+			<div class="tagmap col-8">
+				<img id="result-img" src="./images/mapview.jpg" alt="a map with locations" />
+				<div class="caption">Result map</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer>
+		<span>2017 by LKIT</span>
+	</footer>
+
+	<!-- Load JavaScripts
+					================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="./javascripts/geotagging.js"></script>
+
+	</body>
+
+	</html>
